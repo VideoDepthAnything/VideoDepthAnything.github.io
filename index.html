@@ -1,7 +1,295 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
-</html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content=".">
+    <meta name="keywords"
+        content="Video Depth Anything, long video depth estimation, monocular depth estimation, open-world">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video Depth Anything</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/twentytwenty.css">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./img/logo.png">
+
+
+    <script src="./static/js/jquery-3.2.1.min.js"></script>
+    <script src="./static/js/jquery.event.move.js"></script>
+    <script src="./static/js/jquery.twentytwenty.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKCDBW8851"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-LKCDBW8851');
+</script>
+
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+    </nav>
+
+    <section class="hero teaser">
+        <div class="hero-body">
+            <div class="container is-max-desktop has-text-centered">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title has-text-centered">
+                            Video Depth Anything: Consistent Depth Estimation for Super-Long Videos
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://bingykang.github.io/">Bingyi Kang</a></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+                            </span>
+                            <span class="author-block">
+                                <a href="http://speedinghzl.github.io/">Zilong Huang</a></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+                            </span>
+                        </div>
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <!-- Paper Link. -->
+                                    <a href="https://arxiv.org/abs/2406.09414"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                    <!-- Code Link. -->
+                                    <a href="https://github.com/DepthAnything/Depth-Anything-V2"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                    <!-- HF Link. -->
+                                    <a href="https://huggingface.co/spaces/Depth-Anything/Depth-Anything-V2" target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            &#129303;
+                                        </span>
+                                        <span>Hugging Face Demo</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <img id="teaser" width="100%" src="./static/images/teaser_video.png" />
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <h4 class="subtitle has-text-centered">
+                    <div class="content has-text-justified">
+                        <p>
+                            This work presents <b>Video Depth Anything</b> based on <a href="https://github.com/DepthAnything/Depth-Anything-V2">Depth Anything V2</a>,
+                            which can be applied to arbitrarily long videos without compromising quality, consistency, or generalization ability.
+                            Compared with other diffusion-based models, it enjoys faster inference speed, fewer parameters, and higher consistent depth accuracy.
+                        </p>
+                    </div>
+                </h4>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hero teaser is-light is-small">
+        <div class="hero-body">
+            <div class="container" style="text-align: center; ">
+                <h2 class="title is-3">Long Video Results</h2>
+                <div id="results-carousel-horizontal" class="carousel results-carousel">
+
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/long_videos/bicycle_city_cat.mp4" type="video/mp4">
+                    </video>
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/long_videos/bicycle_wild_1080_cat.mp4" type="video/mp4">
+                    </video>
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/long_videos/motor_1080_cat.mp4" type="video/mp4">
+                    </video>
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/long_videos/skiing_1080_cat.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(window).on('load', function () {
+            bulmaCarousel.attach('#results-carousel-horizontal', {
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                loop: true,
+                autoplay: false,
+            });
+    
+            bulmaCarousel.attach('#results-carousel-vertical', {
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                loop: true,
+                autoplay: false,
+            });
+    
+        });
+    </script>
+
+
+    <br><br><br>
+
+    <section class="hero teaser is-light is-small">
+        <div class="hero-body">
+
+            <div class="container" style="text-align: center; ">
+                <h2 class="title is-3">Comparison with DepthCrafter on open-world videos</h2>
+                <div id="comparison-carousel-horizontal" class="carousel results-carousel">
+
+                    <div class="twoitem">
+                        <video muted autoplay="autoplay" loop="loop" width="100%">
+                            <source src="./videos/comparison/origin/1753029-hd_1920_1080_30fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="twentytwenty-container twentytwenty-container-bottom">
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/dc/1753029-hd_1920_1080_30fps.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/ours/1753029-hd_1920_1080_30fps.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twoitem">
+                        <video muted autoplay="autoplay" loop="loop" width="100%">
+                            <source src="./videos/comparison/origin/2Dto3D_Test2.mp4" type="video/mp4">
+                        </video>
+                        <div class="twentytwenty-container twentytwenty-container-bottom">
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/dc/2Dto3D_Test2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/ours/2Dto3D_Test2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twoitem">
+                        <video muted autoplay="autoplay" loop="loop" width="100%">
+                            <source src="./videos/comparison/origin/4158877-uhd_3840_2160_30fps_rgb.mp4" type="video/mp4">
+                        </video>
+                        <div class="twentytwenty-container twentytwenty-container-bottom">
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/dc/4158877-uhd_3840_2160_30fps_rgb.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/ours/4158877-uhd_3840_2160_30fps_rgb.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twoitem">
+                        <video muted autoplay="autoplay" loop="loop" width="100%">
+                            <source src="./videos/comparison/origin/4511004-uhd_3840_2160_24fps_rgb.mp4" type="video/mp4">
+                        </video>
+                        <div class="twentytwenty-container twentytwenty-container-bottom">
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/dc/4511004-uhd_3840_2160_24fps_rgb.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/ours/4511004-uhd_3840_2160_24fps_rgb.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(window).on('load', function () {
+            bulmaCarousel.attach('#comparison-carousel-horizontal', {
+                slidesToScroll: 2,
+                slidesToShow: 2,
+                loop: true,
+                autoplay: false,
+            });
+    
+            $(".twentytwenty-container-bottom").twentytwenty({
+                before_label: 'DepthCrafter',
+                after_label: 'Ours',
+                default_offset_pct: 0.3,
+                no_overlay: false,
+                // move_slider_on_hover: true,
+            });
+    
+        });
+    </script>
+
+
+</body>
