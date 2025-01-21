@@ -117,7 +117,7 @@
     <section class="hero teaser">
         <div class="container is-max-desktop">
             <div class="hero-body">
-                <img id="teaser" width="100%" src="./static/images/teaser_video.png" />
+                <img id="teaser" width="100%" src="./static/images/teaser_video_v2.png" />
             </div>
         </div>
     </section>
@@ -147,16 +147,16 @@
                 <div id="results-carousel-horizontal" class="carousel results-carousel">
 
                     <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
-                        <source src="./videos/long_videos/bicycle_city_cat.mp4" type="video/mp4">
+                        <source src="./videos/long_videos/bicycle_wild_1024_depth.mp4" type="video/mp4">
                     </video>
                     <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
-                        <source src="./videos/long_videos/bicycle_wild_1080_cat.mp4" type="video/mp4">
+                        <source src="./videos/long_videos/IndoorDroneShots-1024-cut_depth.mp4" type="video/mp4">
                     </video>
                     <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
-                        <source src="./videos/long_videos/motor_1080_cat.mp4" type="video/mp4">
+                        <source src="./videos/long_videos/ParkourFPV-cut_1024_depth.mp4" type="video/mp4">
                     </video>
                     <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
-                        <source src="./videos/long_videos/skiing_1080_cat.mp4" type="video/mp4">
+                        <source src="./videos/long_videos/Single-TakeFPVOff-road-1024-cut_depth.mp4" type="video/mp4">
                     </video>
 
                 </div>
@@ -296,6 +296,43 @@
                             <div class="cmpcontent">
                                 <video muted autoplay="autoplay" loop="loop" width="100%">
                                     <source src="./videos/comparison/ours/davis_burnout.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="twoitem">
+                        <video muted autoplay="autoplay" loop="loop" width="100%">
+                            <source src="./videos/comparison/origin/hulisongputao-cut1-1-1_input.mp4" type="video/mp4">
+                        </video>
+                        <div class="twentytwenty-container twentytwenty-container-bottom">
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/dc/hulisongputao-cut1-1-1-dc.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/ours/hulisongputao-cut1-1-1_vis.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twoitem">
+                        <video muted autoplay="autoplay" loop="loop" width="100%">
+                            <source src="./videos/comparison/origin/yubangxiangzheng-cut3-1_input.mp4" type="video/mp4">
+                        </video>
+                        <div class="twentytwenty-container twentytwenty-container-bottom">
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/dc/yubangxiangzheng-cut3-1-dc.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="cmpcontent">
+                                <video muted autoplay="autoplay" loop="loop" width="100%">
+                                    <source src="./videos/comparison/ours/yubangxiangzheng-cut3-1_vis.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -474,4 +511,81 @@
     </script>
 
 
+
+    <section class="hero teaser is-light is-small">
+        <div class="hero-body">
+            <div class="container" style="text-align: center; ">
+                <h2 class="title is-3">Comparison with DepthCrafter on Unprojected Point Cloud </h2>
+                <div id="pc-carousel-horizontal" class="carousel results-carousel">
+
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/point_cloud/car-competition_merge_0.mp4" type="video/mp4">
+                    </video>
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/point_cloud/elephant-hyenas_merge_0.mp4" type="video/mp4">
+                    </video>
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/point_cloud/car-roundabout_merge_0.mp4" type="video/mp4">
+                    </video>
+                    <video muted autoplay="autoplay" loop="loop" width="100%" preload controls>
+                        <source src="./videos/point_cloud/luggage_merge_0.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+
+                <div class="content has-text-justified" style="margin-top: 15px;">
+                    Intrinsic of camera as well as the aligned scale and shift parameters are obtained 
+                    by running the first frame of the video through <a href="https://github.com/microsoft/moge"><b>MoGe</b></a>, 
+                    which is a powerful model for recovering 3D geometry from monocular open-domain images.
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        $(window).on('load', function () {
+            bulmaCarousel.attach('#pc-carousel-horizontal', {
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                loop: true,
+                autoplay: false,
+            });
+
+            bulmaCarousel.attach('#pc-carousel-vertical', {
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                loop: true,
+                autoplay: false,
+            });
+
+        });
+    </script>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link" href="https://arxiv.org/abs/2406.09414">
+                <i class="fas fa-file-pdf"></i>
+            </a>
+            <a class="icon-link" href="https://github.com/DepthAnything/Depth-Anything-V2" class="external-link"
+                disabled>
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="content">
+                <p>
+                    The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and <a href="https://github.com/depthcrafter/depthcrafter.github.io">DepthCrafter</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
 </body>
+</html>
